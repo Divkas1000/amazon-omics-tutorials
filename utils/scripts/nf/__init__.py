@@ -288,6 +288,8 @@ class NextflowProcess:
 
 def find_docker_uri(container:str) -> dict:
     # check if provided a quoted string and strip bounding quotes
+    if type(container) is list: 
+  	    container=container[1] 
     match = re.match("^(['\"])", container)
     if match:
         container = container[1:-1]
